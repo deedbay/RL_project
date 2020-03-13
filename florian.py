@@ -39,6 +39,8 @@ class Agent:
                     self.y = j
         
     def move(self,x,y) :   
+        x1 = self.x
+        y1 = self.y
         self.x += x
         self.y += y
         
@@ -50,6 +52,9 @@ class Agent:
             self.y = 0
         elif self.y > SIZE-1:
             self.y = SIZE-1
+        if grid[self.x][self.y] == 2 :  #Si l'agent rencontre un mur il reste à sa place
+            self.x = x1
+            self.y = y1
 
     def action(self,choice):
         if choice == 0 :
